@@ -23,12 +23,17 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function checkPrice(){
-  let km = prompt("please enter the expected km distance for the ride");
+  while(true){
+    let km = prompt("please enter the expected km distance for the ride");
   let age = prompt("please enter your age");
+
+  if (km === null || age === null) {
+    return;
+  }
 
   if (km === '' || isNaN(km)){
     alert("Error: please start again and add only numeric character!");
-    return;
+    continue;
   }
   else{
     console.log("you entered: " + km + "km");
@@ -36,7 +41,7 @@ function checkPrice(){
 
   if (age === '' || isNaN(age)){
     alert("Error: please start again and add only numeric character!");
-    return;
+    continue;
   }
   else{
     console.log("you entered: " + age + "years old");
@@ -55,4 +60,7 @@ function checkPrice(){
 
   let formattedPrice = finalPrice.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' });
   alert("The final price is: " + formattedPrice);
+  break;
+  }
+  
 }
