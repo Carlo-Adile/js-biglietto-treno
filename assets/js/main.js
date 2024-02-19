@@ -16,31 +16,43 @@ else show the regular price.
 */
 
 
-console.log("welcome to Trenitalia ticket selling service machine.");
+alert("welcome to Trenitalia ticket selling service machine. Please enter your details to calculate your ticket price.");
 
-let km = prompt("please enter the expected km distance for the ride");
-console.log("you entered: " + km + "km");
+document.addEventListener('DOMContentLoaded', function() {
+  checkPrice();
+});
 
-let age = prompt("please now enter your current age");
-console.log("you entered: " + age + "years old");
+function checkPrice(){
+  let km = prompt("please enter the expected km distance for the ride");
+  let age = prompt("please enter your age");
 
-let regularPrice = km * 0.21;
-let finalPrice;
+  if (km === '' || isNaN(km)){
+    alert("Error: please start again and add only numeric character!");
+    return;
+  }
+  else{
+    console.log("you entered: " + km + "km");
+  }
 
-if (age < 18){
-  let finalPrice = regularPrice * 0.8;
+  if (age === '' || isNaN(age)){
+    alert("Error: please start again and add only numeric character!");
+    return;
+  }
+  else{
+    console.log("you entered: " + age + "years old");
+  }
+
+  let regularPrice = km * 0.21;
+  let finalPrice;
+  
+  if (age < 18) {
+    finalPrice = regularPrice * 0.8;
+  } else if (age >= 65) {
+    finalPrice = regularPrice * 0.6;
+  } else {
+    finalPrice = regularPrice;
+  }
+
   let formattedPrice = finalPrice.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' });
   alert("The final price is: " + formattedPrice);
 }
-else if (age >= 65){
-  let finalPrice = regularPrice * 0.6;
-  let formattedPrice = finalPrice.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' });
-  alert("The final price is: " + formattedPrice);
-}
-else{
-  let formattedPrice = regularPrice.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' });
-  alert("The final price is: " + formattedPrice);
-}
-
-
-
