@@ -15,3 +15,30 @@ else if the customer is 65 years old or older apply the expected discount.
 else show the regular price.
 */
 
+
+console.log("welcome to Trenitalia ticket selling service machine.");
+
+let km = prompt("please enter the expected km distance for the ride");
+console.log("you entered: " + km + "km");
+
+let age = prompt("please now enter your current age");
+console.log("you entered: " + age + "years old");
+
+let regularPrice = km * 0.21;
+let finalPrice;
+
+if (age < 18){
+  let finalPrice = regularPrice * 0.8;
+  alert("The final price is" + finalPrice);
+}
+else if (age >= 65){
+  let finalPrice = regularPrice * 0.6;
+  alert("The final price is" + finalPrice);
+}
+else{
+  alert("The final price is: " + regularPrice );
+}
+
+
+
+
