@@ -29,16 +29,18 @@ let finalPrice;
 
 if (age < 18){
   let finalPrice = regularPrice * 0.8;
-  alert("The final price is" + finalPrice);
+  let formattedPrice = finalPrice.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' });
+  alert("The final price is: " + formattedPrice);
 }
 else if (age >= 65){
   let finalPrice = regularPrice * 0.6;
-  alert("The final price is" + finalPrice);
+  let formattedPrice = finalPrice.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' });
+  alert("The final price is: " + formattedPrice);
 }
 else{
-  alert("The final price is: " + regularPrice );
+  let formattedPrice = regularPrice.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' });
+  alert("The final price is: " + formattedPrice);
 }
-
 
 
 
